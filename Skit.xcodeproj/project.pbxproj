@@ -10,6 +10,7 @@
 		0F98ACEB1359D672AA49A490 /* Pods_Skit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B05DD2573B55F10B8EF8E57 /* Pods_Skit.framework */; };
 		152A87031E4163630094F593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152A87021E4163630094F593 /* FeedViewController.swift */; };
 		156F932C1E423D7F0042F27E /* Tab bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F932B1E423D7F0042F27E /* Tab bar.swift */; };
+		156F93301E426BEC0042F27E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F932F1E426BEC0042F27E /* ProfileViewController.swift */; };
 		15C52E711E4103000066390C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E701E4103000066390C /* AppDelegate.swift */; };
 		15C52E731E4103000066390C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E721E4103000066390C /* SignInViewController.swift */; };
 		15C52E761E4103000066390C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C52E741E4103000066390C /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		152A87021E4163630094F593 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		156F932B1E423D7F0042F27E /* Tab bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab bar.swift"; sourceTree = "<group>"; };
+		156F932F1E426BEC0042F27E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		15C52E6D1E4103000066390C /* Skit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C52E701E4103000066390C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C52E721E4103000066390C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				15C52E721E4103000066390C /* SignInViewController.swift */,
 				152A87021E4163630094F593 /* FeedViewController.swift */,
+				156F932F1E426BEC0042F27E /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -256,7 +259,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "AR Ehsan";
 				TargetAttributes = {
 					15C52E6C1E4103000066390C = {
@@ -359,6 +362,7 @@
 				15C52EAB1E410D350066390C /* DesignableImageView.swift in Sources */,
 				15C52EBB1E410D350066390C /* SpringImageView.swift in Sources */,
 				15C52E731E4103000066390C /* SignInViewController.swift in Sources */,
+				156F93301E426BEC0042F27E /* ProfileViewController.swift in Sources */,
 				15C52EB71E410D350066390C /* SoundPlayer.swift in Sources */,
 				15C52EBE1E410D350066390C /* SpringTextView.swift in Sources */,
 				15C52E711E4103000066390C /* AppDelegate.swift in Sources */,
@@ -427,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -476,6 +481,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

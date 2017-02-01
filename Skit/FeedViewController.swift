@@ -27,5 +27,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 		return cell
 	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
 
 }
