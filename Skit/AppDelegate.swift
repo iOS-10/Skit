@@ -17,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		configureTabBar()
 		FIRApp.configure()
 		
 		return true
+	}
+
+	func configureTabBar() {
+		UITabBar.appearance().shadowImage = UIImage()
+		UITabBar.appearance().backgroundImage = UIImage()
+		UITabBar.appearance().backgroundColor = UIColor.white
+		UITabBar.appearance().tintColor = UIColor(red: 75/255.0, green: 204/255.0, blue: 187/255.0, alpha: 1.0)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {

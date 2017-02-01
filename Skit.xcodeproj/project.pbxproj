@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F98ACEB1359D672AA49A490 /* Pods_Skit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B05DD2573B55F10B8EF8E57 /* Pods_Skit.framework */; };
 		152A87031E4163630094F593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152A87021E4163630094F593 /* FeedViewController.swift */; };
+		156F932C1E423D7F0042F27E /* Tab bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F932B1E423D7F0042F27E /* Tab bar.swift */; };
 		15C52E711E4103000066390C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E701E4103000066390C /* AppDelegate.swift */; };
 		15C52E731E4103000066390C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E721E4103000066390C /* SignInViewController.swift */; };
 		15C52E761E4103000066390C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C52E741E4103000066390C /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		152A87021E4163630094F593 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		156F932B1E423D7F0042F27E /* Tab bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab bar.swift"; sourceTree = "<group>"; };
 		15C52E6D1E4103000066390C /* Skit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C52E701E4103000066390C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C52E721E4103000066390C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		156F93281E423B740042F27E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				156F932B1E423D7F0042F27E /* Tab bar.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		15C52E641E4103000066390C = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				15C52E701E4103000066390C /* AppDelegate.swift */,
+				156F93281E423B740042F27E /* Extensions */,
 				15C52E871E410D350066390C /* Spring */,
 				15C52E841E4107F80066390C /* Model */,
 				15C52E851E4107FD0066390C /* View */,
@@ -357,6 +368,7 @@
 				15C52EB41E410D350066390C /* LoadingView.swift in Sources */,
 				15C52EBD1E410D350066390C /* SpringTextField.swift in Sources */,
 				15C52EAA1E410D350066390C /* DesignableButton.swift in Sources */,
+				156F932C1E423D7F0042F27E /* Tab bar.swift in Sources */,
 				15C52EAE1E410D350066390C /* DesignableTextField.swift in Sources */,
 				15C52EA61E410D350066390C /* AsyncButton.swift in Sources */,
 				15C52EB31E410D350066390C /* KeyboardLayoutConstraint.swift in Sources */,
