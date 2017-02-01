@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F98ACEB1359D672AA49A490 /* Pods_Skit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B05DD2573B55F10B8EF8E57 /* Pods_Skit.framework */; };
+		152A87031E4163630094F593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152A87021E4163630094F593 /* FeedViewController.swift */; };
 		15C52E711E4103000066390C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E701E4103000066390C /* AppDelegate.swift */; };
 		15C52E731E4103000066390C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E721E4103000066390C /* SignInViewController.swift */; };
 		15C52E761E4103000066390C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C52E741E4103000066390C /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		152A87021E4163630094F593 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		15C52E6D1E4103000066390C /* Skit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C52E701E4103000066390C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C52E721E4103000066390C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				15C52E721E4103000066390C /* SignInViewController.swift */,
+				152A87021E4163630094F593 /* FeedViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				15C52EA71E410D350066390C /* AsyncImageView.swift in Sources */,
 				15C52EAD1E410D350066390C /* DesignableTabBarController.swift in Sources */,
 				15C52EA81E410D350066390C /* AutoTextView.swift in Sources */,
+				152A87031E4163630094F593 /* FeedViewController.swift in Sources */,
 				15C52EAF1E410D350066390C /* DesignableTextView.swift in Sources */,
 				15C52EAC1E410D350066390C /* DesignableLabel.swift in Sources */,
 				15C52EC21E410D350066390C /* UnwindSegue.swift in Sources */,

@@ -169,11 +169,40 @@
                     <connections>
                         <outlet property="emailField" destination="WEl-yK-Ols" id="Xem-eO-FAa"/>
                         <outlet property="passwordField" destination="RbY-F2-atm" id="XFq-NM-xXE"/>
+                        <segue destination="apj-W5-24r" kind="show" identifier="showFeed" id="IGQ-Vd-QCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="xIy-5M-JW5">
+            <objects>
+                <viewController id="apj-W5-24r" customClass="FeedViewController" customModule="Skit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eLP-mD-Ot6"/>
+                        <viewControllerLayoutGuide type="bottom" id="f5o-xI-qEh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aon-HW-1Go">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-YL-WaI">
+                                <rect key="frame" x="138" y="315" width="99" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="sign out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="apj-W5-24r" eventType="touchUpInside" id="9gB-rZ-3i1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txs-n2-At8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="139"/>
         </scene>
     </scenes>
     <resources>

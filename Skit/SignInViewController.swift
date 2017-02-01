@@ -18,6 +18,17 @@ class SignInViewController: UIViewController {
 		super.viewDidLoad()
 		
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+			if user != nil {
+				self.performSegue(withIdentifier: "showFeed", sender: nil)
+			} else {
+				print("not logged in")
+			}
+		}
+	}
 
 	@IBAction func logIn(_ sender: Any) {
 		if let email = emailField.text, let password = passwordField.text {
