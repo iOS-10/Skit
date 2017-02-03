@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignInViewController.swift
 //  Skit
 //
 //  Created by Abdurrahman on 1/31/17.
@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
 
@@ -19,14 +20,13 @@ class SignInViewController: UIViewController {
 		
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-			if user != nil {
-				self.performSegue(withIdentifier: "showFeed", sender: nil)
-			} else {
-				print("not logged in")
-			}
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+			performSegue(withIdentifier: "showFeed", sender: nil)
+		} else {
+			print("not logged in")
 		}
 	}
 
@@ -38,6 +38,10 @@ class SignInViewController: UIViewController {
 						print("Success!")
 						print("Email: \(email)")
 						print("Password: \(password)")
+						if let user = user {
+							let userData = ["provider": user.providerID]
+							self.completeSignIn(id: user.uid, userData: userData)
+						}
 						self.emailField.text = ""
 						self.passwordField.text = ""
 						self.view.endEditing(true)
@@ -61,6 +65,10 @@ class SignInViewController: UIViewController {
 						print("Welcome, your account has been created!")
 						print("Your Email: \(email)")
 						print("Your Password: \(password)")
+						if let user = user {
+							let userData = ["provider": user.providerID]
+							self.completeSignIn(id: user.uid, userData: userData)
+						}
 						self.emailField.text = ""
 						self.passwordField.text = ""
 						self.view.endEditing(true)
@@ -68,6 +76,12 @@ class SignInViewController: UIViewController {
 				})
 			}
 		}
+	}
+	
+	func completeSignIn(id: String, userData: Dictionary<String, String>) {
+		DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+		KeychainWrapper.standard.set(id, forKey: KEY_UID)
+		performSegue(withIdentifier: "showFeed", sender: nil)
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

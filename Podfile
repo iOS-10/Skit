@@ -10,4 +10,6 @@ target 'Skit' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SwiftKeychainWrapper'
 end

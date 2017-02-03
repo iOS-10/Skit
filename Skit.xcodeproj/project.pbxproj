@@ -11,6 +11,9 @@
 		152A87031E4163630094F593 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152A87021E4163630094F593 /* FeedViewController.swift */; };
 		156F932C1E423D7F0042F27E /* Tab bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F932B1E423D7F0042F27E /* Tab bar.swift */; };
 		156F93301E426BEC0042F27E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F932F1E426BEC0042F27E /* ProfileViewController.swift */; };
+		156F93321E426D8F0042F27E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F93311E426D8F0042F27E /* PostCell.swift */; };
+		156F93351E42B32C0042F27E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F93341E42B32C0042F27E /* DataService.swift */; };
+		156F93381E4404DC0042F27E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156F93371E4404DC0042F27E /* Constants.swift */; };
 		15C52E711E4103000066390C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E701E4103000066390C /* AppDelegate.swift */; };
 		15C52E731E4103000066390C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C52E721E4103000066390C /* SignInViewController.swift */; };
 		15C52E761E4103000066390C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C52E741E4103000066390C /* Main.storyboard */; };
@@ -52,6 +55,10 @@
 		152A87021E4163630094F593 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		156F932B1E423D7F0042F27E /* Tab bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab bar.swift"; sourceTree = "<group>"; };
 		156F932F1E426BEC0042F27E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		156F93311E426D8F0042F27E /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		156F93341E42B32C0042F27E /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		156F93371E4404DC0042F27E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		156F93391E44079B0042F27E /* Skit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skit.entitlements; sourceTree = "<group>"; };
 		15C52E6D1E4103000066390C /* Skit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C52E701E4103000066390C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C52E721E4103000066390C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +122,23 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		156F93331E42B0820042F27E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				156F93341E42B32C0042F27E /* DataService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		156F93361E4404C60042F27E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				156F93281E423B740042F27E /* Extensions */,
+				156F93371E4404DC0042F27E /* Constants.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		15C52E641E4103000066390C = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +160,10 @@
 		15C52E6F1E4103000066390C /* Skit */ = {
 			isa = PBXGroup;
 			children = (
+				156F93391E44079B0042F27E /* Skit.entitlements */,
 				15C52E701E4103000066390C /* AppDelegate.swift */,
-				156F93281E423B740042F27E /* Extensions */,
+				156F93361E4404C60042F27E /* Util */,
+				156F93331E42B0820042F27E /* Services */,
 				15C52E871E410D350066390C /* Spring */,
 				15C52E841E4107F80066390C /* Model */,
 				15C52E851E4107FD0066390C /* View */,
@@ -161,6 +187,7 @@
 			children = (
 				15C52E741E4103000066390C /* Main.storyboard */,
 				15C52E791E4103000066390C /* LaunchScreen.storyboard */,
+				156F93311E426D8F0042F27E /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -266,6 +293,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = AF7QK5XC7P;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -362,6 +394,7 @@
 				15C52EAB1E410D350066390C /* DesignableImageView.swift in Sources */,
 				15C52EBB1E410D350066390C /* SpringImageView.swift in Sources */,
 				15C52E731E4103000066390C /* SignInViewController.swift in Sources */,
+				156F93321E426D8F0042F27E /* PostCell.swift in Sources */,
 				156F93301E426BEC0042F27E /* ProfileViewController.swift in Sources */,
 				15C52EB71E410D350066390C /* SoundPlayer.swift in Sources */,
 				15C52EBE1E410D350066390C /* SpringTextView.swift in Sources */,
@@ -380,6 +413,7 @@
 				15C52EA71E410D350066390C /* AsyncImageView.swift in Sources */,
 				15C52EAD1E410D350066390C /* DesignableTabBarController.swift in Sources */,
 				15C52EA81E410D350066390C /* AutoTextView.swift in Sources */,
+				156F93381E4404DC0042F27E /* Constants.swift in Sources */,
 				152A87031E4163630094F593 /* FeedViewController.swift in Sources */,
 				15C52EAF1E410D350066390C /* DesignableTextView.swift in Sources */,
 				15C52EAC1E410D350066390C /* DesignableLabel.swift in Sources */,
@@ -388,6 +422,7 @@
 				15C52EA91E410D350066390C /* BlurView.swift in Sources */,
 				15C52EBF1E410D350066390C /* SpringView.swift in Sources */,
 				15C52EC11E410D350066390C /* TransitionZoom.swift in Sources */,
+				156F93351E42B32C0042F27E /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
