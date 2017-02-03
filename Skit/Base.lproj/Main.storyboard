@@ -201,12 +201,18 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Im9-32-fUj">
+                                        <rect key="frame" x="316" y="23" width="20" height="20"/>
+                                        <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29411764709999999" green="0.80000000000000004" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="i4S-Q3-1HD" firstAttribute="centerX" secondItem="Ify-px-HlY" secondAttribute="centerX" id="Ng5-Zi-uHj"/>
                                     <constraint firstItem="i4S-Q3-1HD" firstAttribute="centerY" secondItem="Ify-px-HlY" secondAttribute="centerY" id="Nlv-Wb-9Cf"/>
                                     <constraint firstAttribute="height" constant="65" id="Y58-jv-OG1"/>
+                                    <constraint firstItem="Im9-32-fUj" firstAttribute="top" secondItem="Ify-px-HlY" secondAttribute="top" constant="23" id="iJw-fg-Un4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Im9-32-fUj" secondAttribute="trailing" constant="39" id="lsM-yK-9zf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-eq-tyv" customClass="DesignableView" customModule="Skit" customModuleProvider="target">
@@ -447,6 +453,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="loadingIndicator" destination="Im9-32-fUj" id="D2W-qu-2ie"/>
                         <outlet property="tableView" destination="Ems-Tv-xMg" id="Njo-Pd-Ea7"/>
                     </connections>
                 </viewController>
@@ -642,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlD-wN-7GM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="474.51274362818594"/>
+            <point key="canvasLocation" x="1588" y="458"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4rT-Fm-vz0">
