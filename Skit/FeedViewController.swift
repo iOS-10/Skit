@@ -12,15 +12,21 @@ import Firebase
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	@IBOutlet weak var tableView: UITableView!
-	
 	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var postImg: UIImageView!
 	
 	var posts = [Post]()
+	var picker: UIImagePickerController!
+	static var imageCache: NSCache<NSString, UIImage> = NSCache()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
+		
+		picker = UIImagePickerController()
+		picker.allowsEditing = true
+		picker.delegate = self
 		
 		DataService.ds.REF_POSTS.observe(.value, with: { snapshot in
 			self.loadingIndicator.startAnimating()
@@ -41,14 +47,27 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		})
 	}
 	
+	@IBAction func pickImageBtnPressed(_ sender: UIButton) {
+		present(picker, animated: true, completion: nil)
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return posts.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let post = posts[indexPath.row]
+		
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PostCell {
-			cell.configureCell(post: posts[indexPath.row])
-			return cell
+//			var img: UIImage!
+		
+			if let img = FeedViewController.imageCache.object(forKey: post.imageUrl as NSString) {
+				cell.configureCell(post: posts[indexPath.row], image: img)
+				return cell
+			} else {
+				cell.configureCell(post: post, image: nil)
+				return cell
+			}
 		}
 		return UITableViewCell()
 	}
@@ -58,3 +77,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 
 }
+
+
+
+
+
+
+

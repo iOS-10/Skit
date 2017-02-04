@@ -230,9 +230,6 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="IqJ-EH-7zU" appends="YES" id="suj-Fi-EqW"/>
-                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgt-rJ-Roc">
                                         <rect key="frame" x="318" y="10" width="40" height="40"/>
@@ -270,14 +267,27 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSP-xT-nr7">
+                                        <rect key="frame" x="24" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Qqt-rd-Uzy"/>
+                                            <constraint firstAttribute="width" constant="40" id="chD-ab-3oP"/>
+                                        </constraints>
+                                        <state key="normal" title=" "/>
+                                        <connections>
+                                            <action selector="pickImageBtnPressed:" destination="K0V-2l-ku1" eventType="touchUpInside" id="lOX-20-no9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="KSP-xT-nr7" firstAttribute="leading" secondItem="gN4-eq-tyv" secondAttribute="leading" constant="24" id="GD8-57-vqF"/>
                                     <constraint firstAttribute="trailing" secondItem="Dgt-rJ-Roc" secondAttribute="trailing" constant="17" id="Mwz-tw-6RX"/>
                                     <constraint firstItem="HXP-IR-0We" firstAttribute="leading" secondItem="gN4-eq-tyv" secondAttribute="leading" constant="24" id="NgQ-jN-N7F"/>
                                     <constraint firstItem="HXP-IR-0We" firstAttribute="top" secondItem="gN4-eq-tyv" secondAttribute="top" constant="10" id="WLH-So-QLR"/>
                                     <constraint firstItem="iPj-zA-bWr" firstAttribute="centerY" secondItem="gN4-eq-tyv" secondAttribute="centerY" id="WYs-gp-qrS"/>
                                     <constraint firstItem="iPj-zA-bWr" firstAttribute="centerX" secondItem="gN4-eq-tyv" secondAttribute="centerX" id="dP4-o8-kaH"/>
+                                    <constraint firstItem="KSP-xT-nr7" firstAttribute="top" secondItem="gN4-eq-tyv" secondAttribute="top" constant="10" id="esm-gn-osu"/>
                                     <constraint firstAttribute="height" constant="61" id="nu5-Fl-1zW"/>
                                     <constraint firstItem="Dgt-rJ-Roc" firstAttribute="top" secondItem="gN4-eq-tyv" secondAttribute="top" constant="10" id="plT-fp-Kfl"/>
                                 </constraints>
@@ -370,7 +380,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-t8-jV9">
                                                             <rect key="frame" x="0.0" y="50" width="375" height="239"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mustang" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-vy-YhG">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mustang" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-vy-YhG">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="375" id="VhV-xj-Ivp"/>
@@ -454,11 +464,11 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="loadingIndicator" destination="Im9-32-fUj" id="D2W-qu-2ie"/>
+                        <outlet property="postImg" destination="HXP-IR-0We" id="vkt-NQ-h9X"/>
                         <outlet property="tableView" destination="Ems-Tv-xMg" id="Njo-Pd-Ea7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5m-OX-SiQ" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="IqJ-EH-7zU" userLabel="Change image gesture"/>
             </objects>
             <point key="canvasLocation" x="1588" y="-201.04947526236884"/>
         </scene>
