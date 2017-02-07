@@ -218,7 +218,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-eq-tyv" customClass="DesignableView" customModule="Skit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="65" width="375" height="61"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="HXP-IR-0We" customClass="DesignableImageView" customModule="Skit" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HXP-IR-0We" customClass="DesignableImageView" customModule="Skit" customModuleProvider="target">
                                         <rect key="frame" x="24" y="10" width="40" height="40"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -238,6 +238,9 @@
                                             <constraint firstAttribute="width" constant="40" id="VLM-ng-8IT"/>
                                         </constraints>
                                         <state key="normal" image="post"/>
+                                        <connections>
+                                            <action selector="postBtnPressed:" destination="K0V-2l-ku1" eventType="touchUpInside" id="MBe-GH-SPW"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPj-zA-bWr">
                                         <rect key="frame" x="73" y="10" width="228" height="40"/>
@@ -463,6 +466,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="captionTextField" destination="hOP-9c-3sg" id="Mfc-gr-NVG"/>
                         <outlet property="loadingIndicator" destination="Im9-32-fUj" id="D2W-qu-2ie"/>
                         <outlet property="postImg" destination="HXP-IR-0We" id="vkt-NQ-h9X"/>
                         <outlet property="tableView" destination="Ems-Tv-xMg" id="Njo-Pd-Ea7"/>
@@ -690,6 +694,7 @@
         <image name="like-filled" width="33" height="29"/>
         <image name="logo" width="333" height="294"/>
         <image name="mustang" width="2800" height="1600"/>
+        <image name="placeholder" width="113" height="113"/>
         <image name="post" width="40" height="40"/>
         <image name="profile-empty" width="18" height="25"/>
         <image name="profile-filled" width="18" height="25"/>

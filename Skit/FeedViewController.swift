@@ -14,10 +14,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var postImg: UIImageView!
+	@IBOutlet weak var captionTextField: UITextField!
 	
 	var posts = [Post]()
 	var picker: UIImagePickerController!
 	static var imageCache: NSCache<NSString, UIImage> = NSCache()
+	var imagePicked = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,51 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		present(picker, animated: true, completion: nil)
 	}
 	
+	@IBAction func postBtnPressed(_ sender: Any) {
+		guard let caption = captionTextField.text, caption != "" else {
+			print("Text needed")
+			return
+		}
+		
+		guard let img = postImg.image, imagePicked == true else {
+			print("Attach a pic")
+			return
+		}
+		
+		if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+			let imgUID = NSUUID().uuidString
+			let metaData = FIRStorageMetadata()
+			metaData.contentType = "image/jpeg"
+			
+			DataService.ds.REF_POST_IMAGES.child(imgUID).put(imgData, metadata: metaData) { (metadata, error) in
+				if error != nil {
+					print("Can't upload your image")
+				} else {
+					print("Successfully uploaded image to Firebase Storage")
+					let downloadUrl = metadata?.downloadURL()?.absoluteString
+					if let url = downloadUrl {
+						self.postToFirebase(imgUrl: url)
+					}
+				}
+			}
+		}
+	}
+	
+	func postToFirebase(imgUrl: String) {
+		let post: Dictionary<String, AnyObject> = [
+			"caption": captionTextField.text! as AnyObject,
+			"imageUrl": imgUrl as AnyObject,
+			"likes": 0 as AnyObject
+		]
+		
+		let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+		firebasePost.setValue(post)
+		
+		captionTextField.text = ""
+		imagePicked = false
+		postImg.image = UIImage(named: "placeholder.png")
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return posts.count
 	}
@@ -59,7 +106,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		let post = posts[indexPath.row]
 		
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PostCell {
-//			var img: UIImage!
 		
 			if let img = FeedViewController.imageCache.object(forKey: post.imageUrl as NSString) {
 				cell.configureCell(post: posts[indexPath.row], image: img)

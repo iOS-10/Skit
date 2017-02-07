@@ -17,6 +17,7 @@ extension FeedViewController: UIImagePickerControllerDelegate, UINavigationContr
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let img = info[UIImagePickerControllerEditedImage] as? UIImage {
 			postImg.image = img
+			imagePicked = true
 		} else {
 			print("Image wasn't selected!")
 		}
