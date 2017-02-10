@@ -96,6 +96,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		captionTextField.text = ""
 		imagePicked = false
 		postImg.image = UIImage(named: "placeholder.png")
+		
+		tableView.reloadData()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
