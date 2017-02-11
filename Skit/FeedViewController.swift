@@ -43,6 +43,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 					}
 				}
 			}
+			
+			self.posts.reverse()
 			self.tableView.reloadData()
 			self.loadingIndicator.stopAnimating()
 			self.loadingIndicator.isHidden = true
