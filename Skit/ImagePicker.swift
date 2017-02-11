@@ -25,3 +25,21 @@ extension FeedViewController: UIImagePickerControllerDelegate, UINavigationContr
 		picker.dismiss(animated: true, completion: nil)
 	}
 }
+
+// Profile View Controller
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		picker.dismiss(animated: true, completion: nil)
+	}
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let img = info[UIImagePickerControllerEditedImage] as? UIImage {
+			profileImg.image = img
+		} else {
+			print("Image wasn't selected!")
+		}
+		
+		picker.dismiss(animated: true, completion: nil)
+	}
+}

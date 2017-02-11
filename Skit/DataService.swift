@@ -14,13 +14,14 @@ class DataService {
 	
 	static let ds = DataService()
 	
-	// Databse References
+	// Database References
 	private var _REF_BASE = DB_BASE
 	private var _REF_POSTS = DB_BASE.child("posts")
 	private var _REF_USERS = DB_BASE.child("users")
 	
 	// Storage References
 	private var _REF_POST_IMAGES = STORAGE_BASE.child("feed-pics")
+	private var _REF_PROFILE_IMAGES = STORAGE_BASE.child("profile-pics")
 	
 	var REF_BASE: FIRDatabaseReference {
 		return _REF_BASE
@@ -36,6 +37,10 @@ class DataService {
 	
 	var REF_POST_IMAGES: FIRStorageReference {
 		return _REF_POST_IMAGES
+	}
+	
+	var REF_PROFILE_IMAGES: FIRStorageReference {
+		return _REF_PROFILE_IMAGES
 	}
 
 	var REF_USER_CURRENT: FIRDatabaseReference {
