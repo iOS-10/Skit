@@ -12,4 +12,5 @@ target 'Skit' do
   pod 'Firebase/Storage'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftKeychainWrapper'
+  pod 'PopupDialog', '~> 0.5'
 end

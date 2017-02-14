@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftKeychainWrapper
+import PopupDialog
 
 class SignInViewController: UIViewController {
 
@@ -48,10 +49,15 @@ class SignInViewController: UIViewController {
 						self.view.endEditing(true)
 					} else {
 						print("Error, maybe the user doesn't exist")
+						self.alert(title: "Error", message: "Something went wrong", withCancel: false)
 						self.view.endEditing(true)
 					}
 				})
+			} else {
+				alert(title: "Error", message: "All fields are required", withCancel: false)
 			}
+		} else {
+			alert(title: "Error", message: "All fields are required", withCancel: false)
 		}
 	}
 
@@ -61,6 +67,7 @@ class SignInViewController: UIViewController {
 				FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
 					if error != nil {
 						print("Error, the user couldn't be created")
+						self.alert(title: "Error", message: "Something went wrong, make sure your password contains at least 6 characters", withCancel: false)
 						self.view.endEditing(true)
 						print(error.debugDescription)
 					} else {
@@ -79,7 +86,11 @@ class SignInViewController: UIViewController {
 						self.view.endEditing(true)
 					}
 				})
+			} else {
+				alert(title: "Error", message: "All fields are required", withCancel: false)
 			}
+		} else {
+			alert(title: "Error", message: "All fields are required", withCancel: false)
 		}
 	}
 	
@@ -87,6 +98,32 @@ class SignInViewController: UIViewController {
 		DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
 		KeychainWrapper.standard.set(id, forKey: KEY_UID)
 		performSegue(withIdentifier: "showFeed", sender: nil)
+	}
+	
+	func alert(title: String, message: String, withCancel: Bool) {
+		let popup = PopupDialog(title: title, message: message)
+		popup.transitionStyle = .bounceDown
+		popup.buttonAlignment = .vertical
+		
+		if withCancel {
+			let cancel = CancelButton(title: "cancel") {
+				print("Cancelled")
+			}
+			
+			let ok = DefaultButton(title: "OK") {
+				print("Okayeeed!")
+			}
+			
+			popup.addButtons([cancel, ok])
+		} else {
+			let ok = DefaultButton(title: "OK") {
+				print("Dismissed")
+			}
+			
+			popup.addButtons([ok])
+		}
+		
+		self.present(popup, animated: true, completion: nil)
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

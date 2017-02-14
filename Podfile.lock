@@ -46,6 +46,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
   - IQKeyboardManagerSwift (4.0.8)
+  - PopupDialog (0.5.3)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - IQKeyboardManagerSwift
+  - PopupDialog (~> 0.5)
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -69,8 +71,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  PopupDialog: 533dd564f8781633375505b9fbd406f8f146ccc9
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 73f02b0ad6c2ff579071ffc7875e26244308f94d
+PODFILE CHECKSUM: 47fa989554948dbb43cde9460b6e01a1db89485d
 
 COCOAPODS: 1.1.1

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftKeychainWrapper
+import PopupDialog
 
 class ProfileViewController: UIViewController {
 
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController {
 		picker.allowsEditing = true
 		
 		downloadInfo()
+
 	}
 	
 	func downloadInfo() {
@@ -45,11 +47,14 @@ class ProfileViewController: UIViewController {
 					ref.data(withMaxSize: 4 * 5000 * 5000, completion: { (data, error) in
 						if error != nil {
 							print("Unable to download image from firebase storage")
+							self.alert(title: "Error", message: "Couldn't download image", withCancel: false)
+							print(error.debugDescription)
 						} else {
 							print("Image downloaded from firebase storage")
 							if let imgData = data {
 								if let img = UIImage(data: imgData) {
 									self.profileImg.image = img
+									self.bgImage.image = img
 								}
 							}
 						}
@@ -57,7 +62,6 @@ class ProfileViewController: UIViewController {
 				}
 			}
 		})
-		bgImage.image = profileImg.image
 	}
 	
 	@IBAction func savePressed(_ sender: Any) {
@@ -66,6 +70,7 @@ class ProfileViewController: UIViewController {
 			
 				guard let img = profileImg.image else {
 					print("Attach a pic")
+					alert(title: "Error", message: "Attach a picture", withCancel: false)
 					return
 				}
 				
@@ -83,10 +88,15 @@ class ProfileViewController: UIViewController {
 							if let url = downloadUrl {
 								self.saveInfo(username: username, password: password, email: email, imageUrl: url)
 							}
+							self.alert(title: "Success", message: "Your info was saved", withCancel: false)
 						}
 					}
 				}
+			} else {
+				alert(title: "Error", message: "All fields are required", withCancel: false)
 			}
+		} else {
+			alert(title: "Error", message: "All fields are required", withCancel: false)
 		}
 	}
 	
@@ -110,6 +120,32 @@ class ProfileViewController: UIViewController {
 		KeychainWrapper.standard.removeObject(forKey: KEY_UID)
 		try! FIRAuth.auth()?.signOut()
 		dismiss(animated: true, completion: nil)
+	}
+	
+	func alert(title: String, message: String, withCancel: Bool) {
+		let popup = PopupDialog(title: title, message: message)
+		popup.transitionStyle = .bounceDown
+		popup.buttonAlignment = .vertical
+		
+		if withCancel {
+			let cancel = CancelButton(title: "cancel") {
+				print("Cancelled")
+			}
+			
+			let ok = DefaultButton(title: "OK") {
+				print("Okayeeed!")
+			}
+			
+			popup.addButtons([cancel, ok])
+		} else {
+			let ok = DefaultButton(title: "OK") {
+				print("Dismissed")
+			}
+			
+			popup.addButtons([ok])
+		}
+		
+		self.present(popup, animated: true, completion: nil)
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

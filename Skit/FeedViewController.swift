@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PopupDialog
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -58,11 +59,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBAction func postBtnPressed(_ sender: Any) {
 		guard let caption = captionTextField.text, caption != "" else {
 			print("Text needed")
+			alert(title: "Caption!", message: "We need a caption", withCancel: false)
 			return
 		}
 		
 		guard let img = postImg.image, imagePicked == true else {
 			print("Attach a pic")
+			alert(title: "Picture!", message: "We need a picture", withCancel: false)
 			return
 		}
 		
@@ -74,6 +77,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			DataService.ds.REF_POST_IMAGES.child(imgUID).put(imgData, metadata: metaData) { (metadata, error) in
 				if error != nil {
 					print("Can't upload your image")
+					self.alert(title: "Error", message: "Failed to upload image", withCancel: false)
 				} else {
 					print("Successfully uploaded image to Firebase Storage")
 					let downloadUrl = metadata?.downloadURL()?.absoluteString
@@ -121,6 +125,33 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}
 		return UITableViewCell()
 	}
+	
+	func alert(title: String, message: String, withCancel: Bool) {
+		let popup = PopupDialog(title: title, message: message)
+		popup.transitionStyle = .bounceDown
+		popup.buttonAlignment = .vertical
+		
+		if withCancel {
+			let cancel = CancelButton(title: "cancel") {
+				print("Cancelled")
+			}
+			
+			let ok = DefaultButton(title: "OK") {
+				print("Okayeeed!")
+			}
+			
+			popup.addButtons([cancel, ok])
+		} else {
+			let ok = DefaultButton(title: "OK") {
+				print("Dismissed")
+			}
+			
+			popup.addButtons([ok])
+		}
+		
+		self.present(popup, animated: true, completion: nil)
+	}
+
 	
 	override var prefersStatusBarHidden: Bool {
 		return true
